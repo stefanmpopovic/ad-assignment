@@ -17,6 +17,8 @@ For easier runnin without polluting the system, I've included a Dockerfile for b
     * run `docker run --rm -p 4200:4200 stefan-popovic-fe:latest`
     * when trying to close it, Control + C might not work right away, so `docker ps` and `docker kill <id>` might be needed
     
+Swagger can be accessed at http://localhost:8080/swagger-ui/index.html
+    
 # Missing features/Improvements needed
 As mentioned, some things had to be cut from the app. Here's a rough list of improvements that would be implementet if time allowed it.
 
