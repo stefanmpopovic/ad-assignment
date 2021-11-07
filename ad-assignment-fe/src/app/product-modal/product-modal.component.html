@@ -1,0 +1,52 @@
+<div class="modal darken-bg" [ngStyle]="{display: displayStyle}">
+  <div class="modal-dialog modal-lg shadow-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mt-3">
+            <label class="col-3">ID:</label>
+            <input class="form-control col" [(ngModel)]="currentProduct.id" disabled />
+          </div>
+          <div class="row mt-3">
+            <label class="col-3">Name:</label>
+            <input class="form-control col" [(ngModel)]="currentProduct.name" />
+          </div>
+          <div class="row mt-3">
+            <label class="col-3">Unit:</label>
+            <input class="form-control col" [(ngModel)]="currentProduct.unit" />
+          </div>
+          <div>
+            Delivery times:
+            <div *ngIf="currentProduct.deliveryTimes">
+              <div class="row mt-3" *ngFor="let deliveryTime of currentProduct.deliveryTimes;let index = index">
+                <div class="col-5 form-floating">
+                  <input class="form-control" [(ngModel)]="currentProduct.deliveryTimes[index].maxQuantity" (change)="sortDeliveryTimes()" />
+                  <label>Max Quantity:</label>
+                </div>
+                <div class="col-5 form-floating">
+                  <input class="form-control" [(ngModel)]="currentProduct.deliveryTimes[index].days" />
+                  <label>Delivery Days:</label>
+                </div>
+                <div class="col-2 my-auto">
+                  <button class="btn btn-danger" (click)="removeDeliveryTime(index)">Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <button class="btn btn-success" (click)="addDeliveryTime()">Add delivery time</button>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3" *ngIf="currentProduct.error">
+            <div class="alert alert-danger">{{currentProduct.error}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="saveProduct()">Save</button>
+        <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

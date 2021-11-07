@@ -1,0 +1,15 @@
+<td>{{product.name}}</td>
+<td><input class="form-control"
+           name="quantity"
+           [ngClass]="{'is-invalid': quantityValidationError}"
+           [(ngModel)]="product.quantity"
+           (change)="onDeliveryDataChange()"/>
+</td>
+<td><input class="form-check-input"
+           type="checkbox"
+           [(ngModel)]="product.expressDelivery"
+           (change)="onDeliveryDataChange()" />
+</td>
+<td>{{product.unit}}</td>
+<td>{{product.deliveryDate}}</td>
+<td><button class="btn btn-secondary" (click)="onEditProduct()">Edit</button></td>
