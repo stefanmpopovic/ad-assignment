@@ -32,3 +32,4 @@ As mentioned, some things had to be cut from the app. Here's a rough list of imp
 * Test coverage
 * Types
 * Responsive design
+* Total delivery time calculation
